@@ -21,138 +21,91 @@
   </head>
 
   <body>
-    <form class="search-bar">
-      <input
-        class="place-input"
-        type="text"
-        type="search"
-        id="city"
-        placeholder="Type your city here"
-        autofocus="on"
-      />
-      <button
-        type="button"
-        id="search-button"
-        class="btn btn-outline-secondary"
-      >
-        Search
-      </button>
-      <button
-        type="button"
-        class="btn btn-outline-secondary"
-        id="current-location-button"
-      >
-        📍
-      </button>
-    </form>
-    <hr />
-
     <div class="container">
-      <div class="row current">
-        <div class="col-md">
-          <h1 id="input-city">
-            <bold> Gent </bold>
-          </h1>
-          <h4>
-            <span class="display-day">Thursday</span>
-            <span class="display-time">16:05</span>
-          </h4>
-          <img
-            class="mostly-sunny"
-            id="icon"
-            src="media/wi-day-sunny-overcast.svg"
-            alt="Mostly Sunny"
+      <div class="weather-app-wrapper">
+        <form class="search-bar">
+          <input
+            class="place-input"
+            type="text"
+            type="search"
+            id="city"
+            placeholder="Type your city here"
+            autofocus="on"
           />
+          <button
+            type="button"
+            id="search-button"
+            class="btn btn-outline-secondary"
+          >
+            Search
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-secondary"
+            id="current-location-button"
+          >
+            📍
+          </button>
+        </form>
+        <hr />
+
+        <div class="row current">
+          <div class="col-md">
+            <h1 id="input-city">
+              <bold> Gent </bold>
+            </h1>
+            <h4>
+              <span class="display-day">Thursday</span>
+              <span class="display-time">16:05</span>
+            </h4>
+            <img
+              class="current-icon"
+              id="icon"
+              src="media/icon_snowy.svg"
+              alt="Sunny"
+            />
+          </div>
+
+          <div class="col-md">
+            <h3 id="current-conditions">Mostly Sunny</h3>
+
+            <h3 id="current-temperature">
+              16 <span class="units">°C | <a href="#"> °F </a></span>
+            </h3>
+          </div>
+
+          <div class="col-md">
+            <h4>Real Feel: <span id="real-feel"> 10 </span> °C</h4>
+            <br />
+            <h4>Wind: <span id="current-wind"> 21 </span> km/h</h4>
+            <br />
+
+            <h4>Humidity: <span id="current-humidity"> 32 </span> %</h4>
+            <br />
+          </div>
         </div>
 
-        <div class="col-md">
-          <h3 id="current-conditions">Mostly Sunny</h3>
+        <hr />
 
-          <h3 id="current-temperature">
-            16 <span class="units">°C | <a href="#"> °F </a></span>
-          </h3>
-        </div>
+        <footer>
+          <a href="https://github.com/carinagmorais/my-weatherApp-test"
+            >Coded</a
+          >
+          with ❤️ by Carina Morais & Hosted with
+          <a href="https://www.netlify.com/">Netlify</a>
+          <br />
+          <a>2021</a>
+        </footer>
 
-        <div class="col-md">
-          <h4>Real Feel: <span id="real-feel"> 10 </span> °C</h4>
-          <br />
-          <h4>Wind: <span id="current-wind"> 21 </span> km/h</h4>
-          <br />
-
-          <h4>Humidity: <span id="current-humidity"> 32 </span> %</h4>
-          <br />
-        </div>
+        <a
+          href="mailto:carinagmorais™gmail.com"
+          type="button"
+          class="btn btn-outline-primary contact-button"
+        >
+          Contact me
+        </a>
       </div>
-
-      <hr />
-      <div class="Weatherforecast row">
-        <div class="col-2">
-          <h1>
-            <bold> Sat </bold>
-          </h1>
-
-          <img class="snow" src="media/wi-snow.svg" alt="Snow" />
-          <p>Max 09° C / Min 01° C</p>
-        </div>
-        <div class="col-2">
-          <h1>
-            <bold> Sun </bold>
-          </h1>
-
-          <img class="snow" src="media/wi-snow.svg" alt="Snow" />
-          <p>Max 10° C / Min 01° C</p>
-        </div>
-        <div class="col-2">
-          <h1>
-            <bold> Mon </bold>
-          </h1>
-
-          <img class="cloudy" src="media/wi-cloudy.svg" alt="Cloudy" />
-          <p>Max 14° C / Min 06° C</p>
-        </div>
-
-        <div class="col-2">
-          <h1>
-            <bold> Tue </bold>
-          </h1>
-
-          <img class="cloudy" src="media/wi-cloudy.svg" alt="Cloudy" />
-
-          <p>Max 16° C / Min 08° C</p>
-        </div>
-        <div class="col-2">
-          <h1>
-            <bold> Wed </bold>
-          </h1>
-
-          <img class="sunny" src="media/wi-day-sunny.svg" alt="Sunny" />
-          <p>Max 18° C / Min 08° C</p>
-        </div>
-        <div class="col-2">
-          <h1>
-            <bold> Thu </bold>
-          </h1>
-
-          <img class="sunny" src="media/wi-day-sunny.svg" alt="Sunny" />
-          <p>Max 18° C / Min 10° C</p>
-        </div>
-      </div>
+      <script src="src/index.js"></script>
     </div>
-
-    <footer>
-      <a href="https://github.com/carinagmorais/my-weatherApp-test">Coded</a>
-      with ❤️ by Carina Morais & Hosted with
-      <a href="https://www.netlify.com/">Netlify</a>
-    </footer>
-
-    <a
-      href="mailto:carinagmorais™gmail.com"
-      type="button"
-      class="btn btn-outline-primary contact-button"
-    >
-      Contact me
-    </a>
-
-    <script src="src/index.js"></script>
   </body>
 </html>

@@ -2,9 +2,7 @@ body {
   font-family: "Amatic SC", cursive;
   margin: 20px;
   padding: 40px 60px 10px 60px;
-  border: 2px solid #f67280;
-  border-style: groove;
-  border-radius: 30px 10px;
+
   background: linear-gradient(to right, #ffe8e8, #ffdcdc, #ffb4b4);
 }
 
@@ -38,6 +36,23 @@ footer {
   color: #f67280;
 }
 
+.weather-app-wrapper {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 35px 35px 35px 35px;
+  border-radius: 25px;
+  border: 2px solid #f67280;
+  border-style: groove;
+  border-radius: 30px 10px;
+  align-items: center;
+
+  background-image: linear-gradient(to top, #9fb8d1 0%, #b7b7b7 70%);
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+  transition: all 200ms fade-out 200ms;
+}
+
 .search-bar {
   font-size: 25px;
   margin: 0;
@@ -55,12 +70,10 @@ footer {
   text-align: center;
 }
 
-.mostly-sunny,
-.sunny,
-.snow,
-.cloudy {
-  position: relative;
-  width: 150px;
+.current-icon {
+  margin-left: -60px;
+  margin-top: -60px;
+  width: 250px;
 }
 .contact-button {
   display: block;
