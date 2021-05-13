@@ -17,6 +17,7 @@ h2 {
 }
 
 h3 {
+  text-align: center;
   font-size: 40px;
   font-weight: bold;
   color: white;
@@ -75,7 +76,7 @@ footer {
 
 .current-icon {
   margin-left: -60px;
-  margin-top: -60px;
+  margin-top: -40px;
   width: 250px;
 }
 .contact-button {

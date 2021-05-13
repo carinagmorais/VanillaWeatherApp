@@ -33,6 +33,7 @@ if (currentHour < 10) {
   currentHour = `0 ${currentHour}`;
 }
 let currentMinutes = now.getMinutes();
+console.log(currentMinutes);
 if (currentMinutes < 10) {
   currentMinutes = `0 ${Minutes}`;
 }
@@ -63,7 +64,7 @@ function showTemperature(response) {
   let humidityElement = document.querySelector("#current-humidity");
   let windElement = document.querySelector("#current-wind");
   let realElement = document.querySelector("#real-feel");
-  let iconElement = document.querySelector("#icon");
+  //let iconElement = document.querySelector("#icon");
 
   temperatureElement.innerHTML = `${temperature} °C`;
   conditionsElement.innerHTML = response.data.weather[0].description;
@@ -73,6 +74,95 @@ function showTemperature(response) {
 
   let location = document.querySelector("#input-city");
   location.innerHTML = response.data.name;
+  let weatherSituation = response.data.weather[0].main;
+
+  if (weatherSituation === "Clear") {
+    document.querySelector("#current-conditions").innerHTML = "SUNNY";
+    document.querySelector("#icon").setAttribute("src", "media/icon_sunny.svg");
+  }
+  if (weatherSituation === "Clouds") {
+    document.querySelector("#current-conditions").innerHTML = "CLOUDY";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Mist") {
+    document.querySelector("#current-conditions").innerHTML = "MISTY";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Smoke") {
+    document.querySelector("#current-conditions").innerHTML = "SMOKEY";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Haze") {
+    document.querySelector("#current-conditions").innerHTML = "HAZY";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Dust") {
+    document.querySelector("#current-conditions").innerHTML = "DUSTY";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Fog") {
+    document.querySelector("#current-conditions").innerHTML = "FOGGY";
+    document.querySelector("icon").setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Sand") {
+    document.querySelector("#current-conditions").innerHTML = "DUSTY";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Dust") {
+    document.querySelector("#current-conditions").innerHTML = "DUSTY";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Ash") {
+    document.querySelector("#current-conditions").innerHTML = "ASHY";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Squall") {
+    document.querySelector("#current-conditions").innerHTML = "WINDY";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Tornado") {
+    document.querySelector("#current-conditions").innerHTML = "TORNADO";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_cloudy.svg");
+  }
+  if (weatherSituation === "Snow") {
+    document.querySelector("#current-conditions").innerHTML = "SNOWY";
+    document.querySelector("#icon").setAttribute("src", "media/icon_snowy.svg");
+  }
+  if (weatherSituation === "Rain") {
+    document.querySelector("#current-conditions").innerHTML = "RAINY";
+    document.querySelector("#icon").setAttribute("src", "media/icon_rainy.svg");
+  }
+  if (weatherSituation === "Drizzle") {
+    document.querySelector("#current-conditions").innerHTML = "DRIZZLY";
+    document.querySelector("#icon").setAttribute("src", "media/icon_rainy.svg");
+  }
+
+  if (weatherSituation === "Thunderstorm") {
+    document.querySelector("#current-conditions").innerHTML = "THUNDERSTORM";
+    document
+      .querySelector("#icon")
+      .setAttribute("src", "media/icon_thunder.svg");
+  }
 }
 
 function showPosition(position) {
@@ -92,5 +182,3 @@ function getPosition(event) {
 
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click", getPosition);
-
- let weatherSituation = response.data.weather[0].main;
