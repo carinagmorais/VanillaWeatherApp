@@ -33,9 +33,8 @@ if (currentHour < 10) {
   currentHour = `0 ${currentHour}`;
 }
 let currentMinutes = now.getMinutes();
-console.log(currentMinutes);
 if (currentMinutes < 10) {
-  currentMinutes = `0 ${Minutes}`;
+  currentMinutes = `0${minutes}`;
 }
 
 let displayDay = document.querySelector(".display-day");
@@ -53,28 +52,26 @@ function searchCity(event) {
   axios.get(`${apiURL}`).then(showTemperature);
 }
 
-let searchButton = document.querySelector("#search-button");
-searchButton.addEventListener("click", searchCity);
-
 function showTemperature(response) {
   console.log(response);
-  let temperature = Math.round(response.data.main.temp);
+
   let temperatureElement = document.querySelector("#current-temperature");
   let conditionsElement = document.querySelector("#current-conditions");
   let humidityElement = document.querySelector("#current-humidity");
   let windElement = document.querySelector("#current-wind");
   let realElement = document.querySelector("#real-feel");
-  //let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = `${temperature} °C`;
+  celciusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
   conditionsElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   realElement.innerHTML = Math.round(response.data.main.feels_like);
 
   let location = document.querySelector("#input-city");
-  location.innerHTML = response.data.name;
   let weatherSituation = response.data.weather[0].main;
+  location.innerHTML = response.data.name;
 
   if (weatherSituation === "Clear") {
     document.querySelector("#current-conditions").innerHTML = "SUNNY";
@@ -180,5 +177,32 @@ function getPosition(event) {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+//F|C converter function
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelcius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
+let fahrenheitTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelcius);
+
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click", getPosition);
+
+let searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("click", searchCity);
