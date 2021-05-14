@@ -35,6 +35,7 @@ if (currentHour < 10) {
 let currentMinutes = now.getMinutes();
 if (currentMinutes < 10) {
   currentMinutes = `0${minutes}`;
+  console.log(currentMinutes);
 }
 
 let displayDay = document.querySelector(".display-day");
@@ -42,16 +43,26 @@ displayDay.innerHTML = `${currentDay}, ${currentMonth} ${currentDate}`;
 let displayTime = document.querySelector(".display-time");
 displayTime.innerHTML = `${currentHour}:${currentMinutes}`;
 
-function searchCity(event) {
+//Function city search submit form
+function handleSubmit(event) {
   event.preventDefault();
-  let city = document.querySelector("#city").value;
   let unit = `metric`;
+  let city = document.querySelector("#city").value;
+  //
+  searchCity(city);
+}
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
+function searchCity(city) {
+  let unit = "metric";
   let apiKey = `7fedc1d14d8eb9b728bca5549432aec4`;
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?";
   let apiURL = `${apiEndpoint}q=${city}&appid=${apiKey}&units=${unit}`;
   axios.get(`${apiURL}`).then(showTemperature);
 }
 
+//Current Weather
 function showTemperature(response) {
   console.log(response);
 
@@ -162,6 +173,7 @@ function showTemperature(response) {
   }
 }
 
+//Functio current position
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -203,6 +215,3 @@ celciusLink.addEventListener("click", displayCelcius);
 
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click", getPosition);
-
-let searchButton = document.querySelector("#search-button");
-searchButton.addEventListener("click", searchCity);
