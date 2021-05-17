@@ -6,8 +6,6 @@ body {
 }
 
 h1 {
-  font-size: 70px;
-  font-weight: bold;
   color: white;
 }
 h2 {
@@ -82,6 +80,7 @@ footer {
 .contact-button {
   display: block;
   margin: 0 auto;
+  margin-top: 15px;
   width: 80px;
   background-color: #ffb4da;
   border-color: #ffb4da;
@@ -94,6 +93,21 @@ footer {
 
 .active:hover {
   color: white;
+}
+
+.forecast-date{
+  font-size: 30px;
+  
+}
+
+.forecast-temperature {
+  font-size: 25px;
+  color: white;
+}
+
+#input-city {
+  font-size: 70px;
+  font-weight: bold;
 }
 
 #fahrenheit-link {
