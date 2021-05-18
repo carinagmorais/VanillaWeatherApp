@@ -35,7 +35,7 @@ if (currentHour < 10) {
 let currentMinutes = now.getMinutes();
 if (currentMinutes < 10) {
   currentMinutes = `0${minutes}`;
-  console.log(currentMinutes);
+  //console.log(currentMinutes);
 }
 
 let displayDay = document.querySelector(".display-day");
@@ -215,3 +215,30 @@ celciusLink.addEventListener("click", displayCelcius);
 
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click", getPosition);
+
+//Function forcast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  let forecastHTML = ` <div class="row"> `;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+      <div class="col-2">
+            <div class="forecast-date">
+              <h1>${day}</h1>
+            </div>
+            <img class="forecast-icon" src="media/icon_thunder.svg" />
+            <div class="forecast-temperature">
+              <span class="forecast-maximum"> 09° C</span>/
+              <span class="forecast-minimum">01° C</span>
+            </div>
+      </div>
+   `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+displayForecast();
