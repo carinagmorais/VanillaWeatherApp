@@ -95,13 +95,12 @@ footer {
   color: white;
 }
 
-.forecast-date{
+.forecast-date {
   font-size: 30px;
-  
 }
 
 .forecast-temperature {
-  font-size: 25px;
+  font-size: 23px;
   color: white;
 }
 
