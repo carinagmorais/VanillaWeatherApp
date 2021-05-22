@@ -32,16 +32,15 @@ let currentHour = now.getHours();
 if (currentHour < 10) {
   currentHour = `0 ${currentHour}`;
 }
-let currentMinutes = now.getMinutes();
-if (currentMinutes < 10) {
-  currentMinutes = `0${minutes}`;
-  //console.log(currentMinutes);
+let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
 }
 
 let displayDay = document.querySelector(".display-day");
 displayDay.innerHTML = `${currentDay}, ${currentMonth} ${currentDate}`;
 let displayTime = document.querySelector(".display-time");
-displayTime.innerHTML = `${currentHour}:${currentMinutes}`;
+displayTime.innerHTML = `${currentHour}:${minutes}`;
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -274,3 +273,6 @@ celciusLink.addEventListener("click", displayCelcius);
 
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click", getPosition);
+
+//
+searchCity("Gent");
